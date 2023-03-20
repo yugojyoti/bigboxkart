@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} Search Result{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="mx-5 my-5"> Search Result :"{{keyword}}"</div>
+    
+    
+    <div class=" container ">
+        <div class="row">
+            {% for sr in search_results %}
+            <div class="col-sm">
+              <a href="{% url 'productdetail' sr.id %}" class="btn"><div class="item">
+             <img src="{{sr.product_image.url}}" alt="" height="150" ><span class="fw-bold">{{sr.title}}</span><br>
+             <span class="fs-5">Rs. {{sr.discounted_price}}</span></div></a>
+       </div>
+       {% endfor %}
+    </div>
+    </div>
+     
+    </div>
+</div>
+{% endblock content %}
